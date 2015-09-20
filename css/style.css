@@ -15,7 +15,6 @@ h1 strong{
 	font-weight: 900;
 }
 h2{
-	text-transform: uppercase;
 	line-height: 20px;
 	margin:  0;
 }
@@ -89,15 +88,15 @@ font-weight: 900;
 .navbar-brand{
 	padding: 0 !important;
 	padding-top:10px  !important;
-	height:100px;
+	height:120px;
 }
 
 .navbar-right{
-	padding-top:25px  !important;
+	padding-top:55px  !important;
 }
 
 a.navbar-brand img{
-	height:80px;
+	height:100px;
 }
 
 #tf-menu.navbar-default .navbar-nav > li > a {
@@ -134,7 +133,7 @@ a.navbar-brand img{
 	}
 /* Home Style */
 #tf-home{
-	background: url(../img/bg_shiitake.jpg);
+	background: url(../img/shiitake2.jpg);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
