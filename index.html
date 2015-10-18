@@ -31,7 +31,7 @@
     ================================================== -->
     <link rel="stylesheet" type="text/css"  href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="css/ekko-lightbox.min.css">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
@@ -213,13 +213,13 @@
                     <hr>
                 </div>
                 <div class="clearfix"></div>
-            </div>
+            </div>            
             <div class="space"></div>
             <div class="row" style="position: relative; overflow: hidden; height: 580px;">
                 <div class="col-sm-6 col-md-3 col-lg-3 branding" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="img/gallery/1.jpg" data-lightbox="shiitake">
+                            <a href="img/gallery/1.jpg" data-toggle="lightbox" data-gallery="multiimages">
                                 <div class="hover-text">
                                     <h4>Cogumelos</h4>
                                     <small>Shiitake PRADO</small>
@@ -235,7 +235,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 photography app" style="position: absolute; left: 0px; top: 0px; transform: translate3d(292px, 0px, 0px);">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="img/gallery/2.jpg" data-lightbox="shiitake">
+                            <a href="img/gallery/2.jpg" data-toggle="lightbox" data-gallery="multiimages">
                                 <div class="hover-text">
                                     <h4>Patés</h4>
                                     <small>Shiitake PRADO</small>
@@ -251,7 +251,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 branding" style="position: absolute; left: 0px; top: 0px; transform: translate3d(584px, 0px, 0px);">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="img/gallery/3.jpg" data-lightbox="shiitake">
+                            <a href="img/gallery/3.jpg" data-toggle="lightbox" data-gallery="multiimages">
                                 <div class="hover-text">
                                     <h4>Cogumelos</h4>
                                     <small>Shiitake PRADO</small>
@@ -267,7 +267,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 branding" style="position: absolute; left: 0px; top: 0px; transform: translate3d(876px, 0px, 0px);">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="img/gallery/4.jpg" data-lightbox="shiitake">
+                            <a href="img/gallery/4.jpg" data-toggle="lightbox" data-gallery="multiimages">
                                 <div class="hover-text">
                                     <h4>Patés</h4>
                                     <small>Shiitake PRADO</small>
@@ -283,7 +283,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 web" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 290px, 0px);">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="img/gallery/5.jpg" data-lightbox="shiitake">
+                            <a href="img/gallery/5.jpg" data-toggle="lightbox" data-gallery="multiimages">
                                 <div class="hover-text">
                                     <h4>Patés</h4>
                                     <small>Shiitake PRADO</small>
@@ -299,7 +299,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 app" style="position: absolute; left: 0px; top: 0px; transform: translate3d(292px, 290px, 0px);">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="http://shiitakeprado.com/img/gallery/6.jpg" data-lightbox="shiitake">
+                            <a href="img/gallery/6.jpg"  data-toggle="lightbox" data-gallery="multiimages">
                                 <div class="hover-text">
                                     <h4>Feiras</h4>
                                     <small>Shiitake PRADO</small>
@@ -404,13 +404,33 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/SmoothScroll.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.js"></script>
-	<script type="text/javascript" src="js/lightbox.min.js"></script>
+	<script type="text/javascript" src="js/ekko-lightbox.min.js"></script>
     <script src="js/owl.carousel.js"></script>
 
     <!-- Javascripts
     ================================================== -->
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+			$(document).ready(function ($) {
+
+				// delegate calls to data-toggle="lightbox"
+				$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function(event) {
+					event.preventDefault();
+					return $(this).ekkoLightbox({
+						onShown: function() {
+							if (window.console) {
+								//return console.log('Checking our the events huh?');
+							}
+						},
+						onNavigate: function(direction, itemIndex) {
+							if (window.console) {
+								//return console.log('Navigating '+direction+'. Current item: '+itemIndex);
+							}
+						}
+					});
+				});
+			});
+		</script>
 
   </body>
 </html>
